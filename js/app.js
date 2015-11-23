@@ -16,13 +16,17 @@ example.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 example.controller("LoginController", function ($scope) {
+	$scope.valideRedirect = false;
 
     $scope.login = function () {
-        window.location.href = "https://www.dropbox.com/1/oauth2/authorize?response_type=token&client_id=bdobdjrwd05owto&redirect_uri=http://localhost:19778/templates/secure.html"
+		window.location.href = "https://www.dropbox.com/1/oauth2/authorize?response_type=token&client_id=bdobdjrwd05owto&redirect_uri=https://chaasof.github.io/test_dropbox/redirectResult.html";
     }
-    $scope.blur = function () {
-        window.location.href = "https://www.dropbox.com/1/oauth2/authorize?response_type=token&client_id=bdobdjrwd05owto&redirect_uri=http://localhost:19778/templates/secure.html"
-    }
+    $scope.blur = function (email) {
+        if(email.split('@')[1] == "elior.com"){
+		window.location.href = "https://www.dropbox.com/1/oauth2/authorize?response_type=token&client_id=bdobdjrwd05owto&redirect_uri=https://chaasof.github.io/test_dropbox/redirectResult.html";
+		$scope.valideRedirect = true;
+	}
+     }
 
 });
 

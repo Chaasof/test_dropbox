@@ -8,16 +8,16 @@
     <button ng-click="login()">Login with Dropbox</button>
     <div class="col-md-4">
         <h2 class="form-login-heading">Login</h2>
-        <input ng-blur="blur()"  type="text" class="form-control" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+        <input ng-blur="blur(loginData.userName)"  type="text" class="form-control" placeholder="Username" ng-model="loginData.userName" required autofocus>
         <br />
-        <p ng-show="loginData.userName.split('@')[1] == 'expensya.com'">Redirection to <span ng-bind="loginData.userName.split('@')[1]"></span> ...</p>
+        <p ng-show="valideRedirect">Redirection to <span ng-bind="loginData.userName.split('@')[1]"></span> ...</p>
         <br />
         
-        <input ng-hide="loginData.userName.split('@')[1] == 'expensya.com'" type="password" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
+        <input ng-hide="valideRedirect" type="password" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
        <br />
         <br />
         
-        <button ng-hide="loginData.userName.split('@')[1] == 'expensya.com'"  class="btn btn-md btn-info btn-block" type="submit" data-ng-click="login()">Login</button>
+        <button ng-hide="valideRedirect"  class="btn btn-md btn-info btn-block" type="submit" data-ng-click="login()">Login</button>
         
     </div>
 </body>
